@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Mở port 3000 (hoặc tùy port bạn dùng)
-EXPOSE 4000
+EXPOSE 5001
 
 # Lệnh chạy app
 CMD ["npm", "run", "dev"]
