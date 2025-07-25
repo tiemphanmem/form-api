@@ -4,7 +4,6 @@ const fs = require('fs');
 
 const UPLOAD_PATH = process.env.UPLOAD_FOLDER || path.join(__dirname, '../../../uploads/form');
 
-// Tạo thư mục nếu chưa có
 if (!fs.existsSync(UPLOAD_PATH)) {
   fs.mkdirSync(UPLOAD_PATH, { recursive: true });
 }
@@ -19,4 +18,4 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-module.exports = upload;
+module.exports = upload; // ❗ Chỉ export upload chưa cấu hình .fields()
