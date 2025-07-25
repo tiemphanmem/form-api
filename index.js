@@ -8,7 +8,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+// Serve giao diện đã export từ Next.js
+app.use(express.static(path.join(__dirname, 'out')));
+
+// Fallback tất cả các route còn lại về index.html (SPA)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'out', 'index.html'));
+});
+
 
 // Serve ảnh tĩnh
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
