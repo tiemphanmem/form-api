@@ -1,6 +1,6 @@
 services:
   backend:
-    container_name: api-tsc
+    container_name: form-tsc
     build: .
     ports:
       - "5001:5001"
